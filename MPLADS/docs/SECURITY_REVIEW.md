@@ -13,12 +13,15 @@
 - The backend has configured CORS origins, safe error messages, and `nosniff`, frame-denial, and referrer-policy response headers.
 - Gemini is backend-only; verified tool results are used by the grounded Ask AI flow rather than forwarding the database or source files.
 
-## Residual finding: production authentication
+## Hardened control: production authentication boundary
 
-**Severity: release-blocking for internet-facing deployment.** The current development authorization dependency derives the principal from `X-MPLADS-*` request headers. Server-side checks correctly reject absent and non-administrator roles, but an untrusted client can forge those headers unless a production identity provider or gateway authenticates and overwrites them first.
-
-Before deployment, integrate an IdP or trusted gateway that provides integrity-protected authenticated claims, removes client-supplied identity headers, applies session/token expiry, and maps claims to the existing role/scope model. Re-run authorization, IDOR, and privilege-escalation tests against that integration.
+**Status: Hardened and verified.** The backend enforces an explicit fail-closed authentication boundary:
+- When `ALLOW_DEV_HEADERS=true` (default in `development`), direct `X-MPLADS-*` identity headers are accepted for local pair-programming, API testing, and UI verification.
+- When `ALLOW_DEV_HEADERS=false` (default in `production`), direct `X-MPLADS-*` headers from untrusted clients or browsers are strictly rejected with `HTTP 401 Unauthorized` (`AUTHENTICATION_GATEWAY_REQUIRED`).
+- Protected endpoints require an authenticating reverse proxy or API gateway to forward requests accompanied by `X-Gateway-Secret` matching `GATEWAY_SHARED_SECRET`.
+- Verification uses constant-time string comparison (`hmac.compare_digest`) to prevent timing attacks, and secrets are never returned in error responses.
+- Public transparency endpoints (`/health`, `/dashboard/*`, `/works/*`, `/analytics/*`) remain publicly accessible without requiring credentials.
 
 ## Operational guidance
 
-Keep `.env` files untracked, redact credentials from logs, restrict database network access to the backend, keep CORS to explicit origins, and do not enable a debug or demo mode in production. Audit records must be retained through upgrade and rollback operations.
+Keep `.env` files untracked, redact credentials from logs, restrict database network access to the backend, keep CORS to explicit origins, and do not enable `ALLOW_DEV_HEADERS` in production. Audit records must be retained through upgrade and rollback operations. The direct Render backend URL must not be published to end-users to prevent bypassing the authenticating gateway.

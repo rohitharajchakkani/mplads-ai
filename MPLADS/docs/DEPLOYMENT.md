@@ -22,15 +22,17 @@ The health check is `GET /api/v1/health`. It reports application, database, acti
 
 The backend configuration loader reads `C:\Projects\MPLADS\backend\.env` in local development. Process environment variables take precedence. Deployment must configure the following names through its secret/configuration manager:
 
-- `APP_ENV`
-- `DATABASE_URL`
-- `API_PREFIX`
-- `CORS_ORIGINS`
-- `MAX_UPLOAD_BYTES`
-- `GEMINI_API_KEY`
-- `GEMINI_MODEL`
+- `APP_ENV`: Application environment (`production` in deployment; `development` locally).
+- `ALLOW_DEV_HEADERS`: Explicit gateway gate (`false` in production; `true` in local development).
+- `GATEWAY_SHARED_SECRET`: Cryptographic shared secret known only to the trusted reverse proxy / authenticating gateway and the backend.
+- `DATABASE_URL`: SQLAlchemy connection string.
+- `API_PREFIX`: Route prefix (`/api/v1`).
+- `CORS_ORIGINS`: Approved frontend origins.
+- `MAX_UPLOAD_BYTES`: Maximum upload size in bytes.
+- `GEMINI_API_KEY`: Google Gemini API key (server-side only).
+- `GEMINI_MODEL`: Model identifier (`gemini-2.5-flash`).
 
-Only `GEMINI_API_KEY` is a provider credential. Keep it backend-only. The frontend must never receive it.
+Only `GEMINI_API_KEY` and `GATEWAY_SHARED_SECRET` are sensitive credentials. Keep them strictly backend/gateway-only. The frontend must never receive them.
 
 ## Frontend
 
@@ -40,7 +42,7 @@ Build the Vite frontend from `C:\Projects\MPLADS\frontend`:
 npm run build
 ```
 
-The output is `frontend/dist`. Its only API configuration is the public-safe `VITE_API_BASE_URL`; it must point to the backend API prefix. Do not place backend credentials, database connection strings, or Gemini configuration in a `VITE_` variable.
+The output is `frontend/dist`. Its only API configuration is the public-safe `VITE_API_BASE_URL`; it must point to the gateway or backend API prefix. Do not place backend credentials, database connection strings, gateway secrets, or Gemini configuration in a `VITE_` variable.
 
 ## Database and releases
 
@@ -52,6 +54,10 @@ Set `CORS_ORIGINS` to the exact deployed frontend origin or origins; do not use 
 
 For an application rollback, deploy the previous compatible application version. For a database rollback, use a verified backup or an Alembic downgrade only after validating that the target revision is compatible with retained release and audit history. Do not delete audit records or source data as a rollback shortcut.
 
-## Required pre-deployment checks
+## Production authentication boundary and gateway routing
 
-Run the production checklist and security review in this directory. Deployment remains blocked until a real production identity provider or trusted authentication gateway replaces development request-header identity handling.
+The backend enforces a fail-closed production authentication boundary:
+- **Local development:** When `ALLOW_DEV_HEADERS=true` (the default in `development`), direct client `X-MPLADS-*` identity headers are accepted for local verification.
+- **Production deployment:** When `ALLOW_DEV_HEADERS=false` (the default in `production`), all direct `X-MPLADS-*` headers from browsers or clients are rejected with `HTTP 401 Unauthorized`.
+- **Gateway protection:** In production, protected endpoints require an authenticating reverse proxy or API gateway that validates user identity, strips untrusted client headers, injects verified role/scope claims, and supplies `X-Gateway-Secret` matching `GATEWAY_SHARED_SECRET`.
+- **No direct bypass:** The direct Render backend URL must not be published to end-users to prevent bypassing the authenticating gateway. Public transparency endpoints (`/health`, `/dashboard/*`, `/works/*`, `/analytics/*`) remain publicly accessible without gateway credentials.

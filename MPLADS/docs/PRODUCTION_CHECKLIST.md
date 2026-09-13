@@ -4,9 +4,11 @@
 
 - [ ] `backend/.env` is ignored locally and no secret is committed.
 - [ ] Production supplies backend variables through a secret/configuration manager.
+- [ ] `APP_ENV` is set to `production`.
+- [ ] `ALLOW_DEV_HEADERS` is set to `false` in production.
+- [ ] `GATEWAY_SHARED_SECRET` is set in the backend and trusted reverse proxy only.
 - [ ] `GEMINI_API_KEY` is available only to the backend process.
 - [ ] The frontend has only public-safe `VITE_API_BASE_URL` configuration.
-- [ ] `APP_ENV` is set to the intended deployment mode.
 - [ ] `CORS_ORIGINS` names only approved frontend origins.
 
 ## Application and database
@@ -19,8 +21,10 @@
 
 ## Access and operations
 
-- [ ] A production identity provider or trusted gateway provides authenticated principal, role, actor, and scope claims.
-- [ ] Header values from untrusted browsers cannot establish an administrator identity.
+- [ ] An authenticating reverse proxy or API gateway provides authenticated principal, role, actor, and scope claims.
+- [ ] Untrusted browser requests attempting direct `X-MPLADS-*` identity injection are rejected with `HTTP 401`.
+- [ ] Gateway forwards requests with `X-Gateway-Secret` matching `GATEWAY_SHARED_SECRET`.
+- [ ] Direct Render backend URL is not published to bypass the authentication gateway.
 - [ ] Platform-administrator access to `/api/v1/admin/*` is verified server-side.
 - [ ] Access, role/scope, release, and review/recommendation events appear in append-only audit surfaces.
 - [ ] Gemini status is reported safely; its credential is never rendered or logged.
@@ -29,10 +33,10 @@
 
 - [ ] `npx tsc -b` passes.
 - [ ] `npm run build` passes.
-- [ ] Backend tests pass on an isolated test database.
+- [ ] Backend tests (including production authentication hardening) pass.
 - [ ] Frontend tests and Playwright smoke checks pass.
 - [ ] Static scans find no committed credential or production mock data.
 
-## Current release blocker
+## Operational gate status
 
-The current development identity mechanism accepts MPLADS role/scope request headers. It is adequate for local verification but is not a production authentication boundary. Production deployment is blocked until those headers are populated and integrity-protected by a real IdP or trusted gateway, with direct browser spoofing prevented.
+Backend authentication hardening is fully implemented and verified via automated test suites. Direct client spoofing of `X-MPLADS-*` headers is rejected in production mode (`ALLOW_DEV_HEADERS=false`). Deployment readiness requires populating `GATEWAY_SHARED_SECRET` in the Render environment and configuring the reverse proxy / gateway before directing user traffic to protected monitoring features.

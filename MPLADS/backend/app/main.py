@@ -24,6 +24,7 @@ app.add_middleware(
     allow_headers=[
         "Authorization", "Content-Type",
         "X-MPLADS-Role", "X-MPLADS-State-Scope", "X-MPLADS-District-Scope", "X-MPLADS-MP-Scope", "X-MPLADS-Actor",
+        "X-Gateway-Secret",
     ],
 )
 

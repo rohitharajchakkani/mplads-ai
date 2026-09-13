@@ -1,5 +1,5 @@
+import hmac
 from collections.abc import Generator
-
 from dataclasses import dataclass
 
 from fastapi import Depends, Header, HTTPException
@@ -7,7 +7,7 @@ from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
-from app.core.config import get_settings
+from app.core.config import Settings, get_settings
 from app.db.session import create_session_factory
 from app.services.versioning_service import LifecycleError, resolve_active_scope
 
@@ -52,7 +52,23 @@ def require_intelligence_principal(
     district_scope: str | None = Header(None, alias="X-MPLADS-District-Scope"),
     mp_scope: str | None = Header(None, alias="X-MPLADS-MP-Scope"),
     actor: str | None = Header(None, alias="X-MPLADS-Actor"),
+    gateway_secret: str | None = Header(None, alias="X-Gateway-Secret"),
+    settings: Settings = Depends(get_settings),
 ) -> IntelligencePrincipal:
+    if not settings.allow_dev_headers:
+        if (
+            not settings.gateway_shared_secret
+            or not gateway_secret
+            or not hmac.compare_digest(gateway_secret, settings.gateway_shared_secret)
+        ):
+            raise HTTPException(
+                status_code=401,
+                detail={
+                    "code": "AUTHENTICATION_GATEWAY_REQUIRED",
+                    "message": "Direct identity headers are disabled in production. An authenticated gateway secret is required.",
+                },
+            )
+
     if role not in {"MP", "DISTRICT_AUTHORITY", "STATE_NODAL_AUTHORITY", "MINISTRY", "PLATFORM_ADMINISTRATOR"}:
         raise HTTPException(status_code=401, detail={"code": "INTELLIGENCE_AUTH_REQUIRED", "message": "A valid protected intelligence role is required."})
     if role == "MP" and not mp_scope:
