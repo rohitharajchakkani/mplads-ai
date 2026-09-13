@@ -19,6 +19,9 @@ backend.env
 *.db-journal
 *.sqlite-wal
 *.sqlite-shm
+data/deployment/*.sqlite
+data/deployment/mplads_derived.sqlite
+
 
 # Python & Virtual Environments
 __pycache__/
@@ -61,6 +64,8 @@ data/raw/*/*
 !data/raw/**/.gitkeep
 data/raw/*.*
 !data/raw/.gitkeep
+data/deployment/*
+!data/deployment/.gitkeep
 
 # IDE & Editor files
 .vscode/
