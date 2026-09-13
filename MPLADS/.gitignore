@@ -1,0 +1,72 @@
+# Environment & Secrets (Exclude all .env and .env.* except .env.example)
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+frontend/.env.local
+*.env
+backend.env
+
+# SQLite & Database Files
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.venv/
+backend/.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+backend/.pytest_cache/
+frontend/.pytest_cache/
+backend/pytest-cache-files-*/
+.mypy_cache/
+.coverage
+coverage/
+htmlcov/
+*.log
+
+# Backend test and local runtimes
+backend/.test-runtime/
+
+# Node & Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+frontend/test-results/
+.npm/
+*.tsbuildinfo
+
+# Data directories (keep directory structure with .gitkeep only)
+data/processed/*
+!data/processed/.gitkeep
+data/staging/*
+!data/staging/.gitkeep
+data/raw/*/*
+!data/raw/**/.gitkeep
+data/raw/*.*
+!data/raw/.gitkeep
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

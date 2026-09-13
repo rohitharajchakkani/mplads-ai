@@ -1,0 +1,19 @@
+{
+  "manifest_version": "intake-2026-09-06",
+  "assignment_basis": "User-declared House folders, required 1-12 ordering, and observed workbook structure/field semantics. No workbook contains a dedicated House column.",
+  "header_source_row": 2,
+  "datasets": [
+    {"order": 1, "house": "LOK_SABHA", "dataset_type": "ALLOCATED_LIMIT", "source_file": "raw/lok_sabha/Allocated Limit for Honble MPs.xlsx"},
+    {"order": 2, "house": "LOK_SABHA", "dataset_type": "CALAMITY", "source_file": "raw/lok_sabha/Amount consented for Calamity.xlsx"},
+    {"order": 3, "house": "LOK_SABHA", "dataset_type": "WORKS_RECOMMENDED", "source_file": "raw/lok_sabha/Works Recommended (2).xlsx"},
+    {"order": 4, "house": "LOK_SABHA", "dataset_type": "WORKS_SANCTIONED", "source_file": "raw/lok_sabha/Works Sanctioned.xlsx"},
+    {"order": 5, "house": "LOK_SABHA", "dataset_type": "EXPENDITURE", "source_file": "raw/lok_sabha/Expenditure on Completed and On-going Works as on Date.xlsx"},
+    {"order": 6, "house": "LOK_SABHA", "dataset_type": "WORKS_COMPLETED", "source_file": "raw/lok_sabha/Works Completed.xlsx"},
+    {"order": 7, "house": "RAJYA_SABHA", "dataset_type": "ALLOCATED_LIMIT", "source_file": "raw/rajya_sabha/Allocated Limit for Honble MPs (1).xlsx"},
+    {"order": 8, "house": "RAJYA_SABHA", "dataset_type": "CALAMITY", "source_file": "raw/rajya_sabha/Amount consented for Calamity (1).xlsx"},
+    {"order": 9, "house": "RAJYA_SABHA", "dataset_type": "WORKS_RECOMMENDED", "source_file": "raw/rajya_sabha/Works Recommended (3).xlsx"},
+    {"order": 10, "house": "RAJYA_SABHA", "dataset_type": "WORKS_SANCTIONED", "source_file": "raw/rajya_sabha/Works Sanctioned (1).xlsx"},
+    {"order": 11, "house": "RAJYA_SABHA", "dataset_type": "EXPENDITURE", "source_file": "raw/rajya_sabha/Expenditure on Completed and On-going Works as on Date (1).xlsx"},
+    {"order": 12, "house": "RAJYA_SABHA", "dataset_type": "WORKS_COMPLETED", "source_file": "raw/rajya_sabha/Works Completed (1).xlsx"}
+  ]
+}

@@ -1,0 +1,33 @@
+"""Add persisted peer benchmarking and evidence-backed recommendations.
+
+Revision ID: 20260907_05
+Revises: 20260907_04
+"""
+from alembic import op
+import sqlalchemy as sa
+
+revision = "20260907_05"
+down_revision = "20260907_04"
+branch_labels = None
+depends_on = None
+
+
+def upgrade() -> None:
+    op.create_table("benchmark_runs", sa.Column("run_id", sa.String(80), primary_key=True), sa.Column("dataset_version", sa.String(96), nullable=False), sa.Column("benchmark_version", sa.String(32), nullable=False), sa.Column("configuration_hash", sa.String(64), nullable=False), sa.Column("started_at", sa.DateTime(timezone=True), nullable=False), sa.Column("completed_at", sa.DateTime(timezone=True)), sa.Column("status", sa.String(16), nullable=False), sa.Column("entity_count", sa.Integer(), nullable=False, server_default="0"), sa.Column("result_count", sa.Integer(), nullable=False, server_default="0"), sa.Column("configuration", sa.JSON(), nullable=False), sa.Column("error_summary", sa.Text()))
+    op.create_table("benchmark_cohorts", sa.Column("cohort_id", sa.String(80), primary_key=True), sa.Column("run_id", sa.String(80), sa.ForeignKey("benchmark_runs.run_id"), nullable=False), sa.Column("entity_type", sa.String(32), nullable=False), sa.Column("house", sa.String(20), nullable=False), sa.Column("metric", sa.String(48), nullable=False), sa.Column("definition", sa.JSON(), nullable=False), sa.Column("peer_ids", sa.JSON(), nullable=False), sa.Column("peer_count", sa.Integer(), nullable=False), sa.Column("valid_entities", sa.Integer(), nullable=False), sa.Column("fingerprint", sa.String(64), nullable=False, unique=True), sa.Column("created_at", sa.DateTime(timezone=True), nullable=False))
+    op.create_table("benchmark_results", sa.Column("result_id", sa.String(80), primary_key=True), sa.Column("run_id", sa.String(80), sa.ForeignKey("benchmark_runs.run_id"), nullable=False), sa.Column("cohort_id", sa.String(80), sa.ForeignKey("benchmark_cohorts.cohort_id")), sa.Column("entity_type", sa.String(32), nullable=False), sa.Column("entity_id", sa.String(300), nullable=False), sa.Column("house", sa.String(20), nullable=False), sa.Column("state_name", sa.String(150)), sa.Column("district_or_ida", sa.String(500)), sa.Column("mp_source_name", sa.String(300)), sa.Column("metric", sa.String(48), nullable=False), sa.Column("formula", sa.Text(), nullable=False), sa.Column("value", sa.Float()), sa.Column("peer_median", sa.Float()), sa.Column("p25", sa.Float()), sa.Column("p75", sa.Float()), sa.Column("p90", sa.Float()), sa.Column("iqr", sa.Float()), sa.Column("peer_count", sa.Integer(), nullable=False, server_default="0"), sa.Column("valid_work_count", sa.Integer(), nullable=False, server_default="0"), sa.Column("benchmark_available", sa.Boolean(), nullable=False, server_default=sa.false()), sa.Column("unavailable_reason", sa.String(240)), sa.Column("directionality", sa.String(32), nullable=False), sa.Column("bottleneck_flag", sa.Boolean(), nullable=False, server_default=sa.false()), sa.Column("interpretation", sa.String(240), nullable=False), sa.Column("dataset_version", sa.String(96), nullable=False), sa.Column("benchmark_version", sa.String(32), nullable=False), sa.Column("provenance_hash", sa.String(64), nullable=False, unique=True), sa.Column("generated_at", sa.DateTime(timezone=True), nullable=False), sa.UniqueConstraint("run_id", "entity_type", "entity_id", "metric", name="uq_benchmark_result_run_entity_metric"))
+    op.create_table("benchmark_peers", sa.Column("peer_id", sa.String(80), primary_key=True), sa.Column("result_id", sa.String(80), sa.ForeignKey("benchmark_results.result_id"), nullable=False), sa.Column("peer_entity_id", sa.String(300), nullable=False), sa.Column("peer_value", sa.Float(), nullable=False), sa.UniqueConstraint("result_id", "peer_entity_id", name="uq_benchmark_peer_result_entity"))
+    op.create_table("recommendations", sa.Column("recommendation_id", sa.String(80), primary_key=True), sa.Column("canonical_work_key", sa.String(110), sa.ForeignKey("works.canonical_work_key")), sa.Column("entity_type", sa.String(32), nullable=False), sa.Column("entity_id", sa.String(300), nullable=False), sa.Column("house", sa.String(20)), sa.Column("state_name", sa.String(150)), sa.Column("district_or_ida", sa.String(500)), sa.Column("mp_source_name", sa.String(300)), sa.Column("recommendation_type", sa.String(64), nullable=False), sa.Column("reason", sa.Text(), nullable=False), sa.Column("evidence_references", sa.JSON(), nullable=False), sa.Column("priority", sa.String(16), nullable=False), sa.Column("dataset_version", sa.String(96), nullable=False), sa.Column("status", sa.String(24), nullable=False, server_default="NOTED"), sa.Column("fingerprint", sa.String(64), nullable=False), sa.Column("generated_at", sa.DateTime(timezone=True), nullable=False), sa.Column("updated_at", sa.DateTime(timezone=True), nullable=False), sa.Column("version", sa.Integer(), nullable=False, server_default="1"), sa.UniqueConstraint("fingerprint", name="uq_recommendation_fingerprint"))
+    op.create_table("recommendation_events", sa.Column("event_id", sa.String(80), primary_key=True), sa.Column("recommendation_id", sa.String(80), sa.ForeignKey("recommendations.recommendation_id"), nullable=False), sa.Column("actor", sa.String(160), nullable=False), sa.Column("action", sa.String(32), nullable=False), sa.Column("occurred_at", sa.DateTime(timezone=True), nullable=False), sa.Column("metadata_json", sa.JSON(), nullable=False))
+    for table, columns in {"benchmark_runs": ["dataset_version", "benchmark_version", "configuration_hash", "started_at", "status"], "benchmark_cohorts": ["run_id", "entity_type", "house", "metric", "fingerprint", "created_at"], "benchmark_results": ["run_id", "cohort_id", "entity_type", "entity_id", "house", "state_name", "district_or_ida", "mp_source_name", "metric", "benchmark_available", "bottleneck_flag", "dataset_version", "provenance_hash", "generated_at"], "benchmark_peers": ["result_id", "peer_entity_id"], "recommendations": ["canonical_work_key", "entity_type", "entity_id", "house", "state_name", "district_or_ida", "mp_source_name", "recommendation_type", "priority", "dataset_version", "status", "fingerprint", "generated_at", "updated_at"], "recommendation_events": ["recommendation_id", "actor", "action", "occurred_at"]}.items():
+        for column in columns:
+            op.create_index(f"ix_{table}_{column}", table, [column])
+
+
+def downgrade() -> None:
+    op.drop_table("recommendation_events")
+    op.drop_table("recommendations")
+    op.drop_table("benchmark_peers")
+    op.drop_table("benchmark_results")
+    op.drop_table("benchmark_cohorts")
+    op.drop_table("benchmark_runs")

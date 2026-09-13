@@ -1,0 +1,161 @@
+{
+  "batch_id": "cc8d5102-096c-5836-8957-cadd323d2965",
+  "idempotent_reuse": true,
+  "source_rows": 256445,
+  "staged_rows": 256445,
+  "datasets": [
+    {
+      "order": 1,
+      "house": "LOK_SABHA",
+      "dataset_type": "ALLOCATED_LIMIT",
+      "source_rows": 544,
+      "staged_rows": 544,
+      "valid_rows": 542,
+      "warning_rows": 0,
+      "rejected_rows": 2,
+      "unresolved_rows": 0,
+      "blank_id_rows": 0
+    },
+    {
+      "order": 2,
+      "house": "LOK_SABHA",
+      "dataset_type": "CALAMITY",
+      "source_rows": 13,
+      "staged_rows": 13,
+      "valid_rows": 12,
+      "warning_rows": 1,
+      "rejected_rows": 0,
+      "unresolved_rows": 0,
+      "blank_id_rows": 0
+    },
+    {
+      "order": 3,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_RECOMMENDED",
+      "source_rows": 103424,
+      "staged_rows": 103424,
+      "valid_rows": 77980,
+      "warning_rows": 25441,
+      "rejected_rows": 3,
+      "unresolved_rows": 25441,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 4,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_SANCTIONED",
+      "source_rows": 32001,
+      "staged_rows": 32001,
+      "valid_rows": 32000,
+      "warning_rows": 0,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 5,
+      "house": "LOK_SABHA",
+      "dataset_type": "EXPENDITURE",
+      "source_rows": 10001,
+      "staged_rows": 10001,
+      "valid_rows": 10000,
+      "warning_rows": 0,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 6,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_COMPLETED",
+      "source_rows": 33983,
+      "staged_rows": 33983,
+      "valid_rows": 33905,
+      "warning_rows": 77,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 7,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "ALLOCATED_LIMIT",
+      "source_rows": 232,
+      "staged_rows": 232,
+      "valid_rows": 231,
+      "warning_rows": 0,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 0
+    },
+    {
+      "order": 8,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "CALAMITY",
+      "source_rows": 21,
+      "staged_rows": 21,
+      "valid_rows": 20,
+      "warning_rows": 1,
+      "rejected_rows": 0,
+      "unresolved_rows": 0,
+      "blank_id_rows": 0
+    },
+    {
+      "order": 9,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_RECOMMENDED",
+      "source_rows": 22001,
+      "staged_rows": 22001,
+      "valid_rows": 18668,
+      "warning_rows": 3331,
+      "rejected_rows": 2,
+      "unresolved_rows": 3332,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 10,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_SANCTIONED",
+      "source_rows": 19331,
+      "staged_rows": 19331,
+      "valid_rows": 19330,
+      "warning_rows": 0,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 11,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "EXPENDITURE",
+      "source_rows": 24980,
+      "staged_rows": 24980,
+      "valid_rows": 24979,
+      "warning_rows": 0,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    },
+    {
+      "order": 12,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_COMPLETED",
+      "source_rows": 9914,
+      "staged_rows": 9914,
+      "valid_rows": 9895,
+      "warning_rows": 18,
+      "rejected_rows": 1,
+      "unresolved_rows": 0,
+      "blank_id_rows": 1
+    }
+  ],
+  "canonical": {
+    "canonical_works": 97516,
+    "recommended_records": 125420,
+    "sanctioned_records": 51330,
+    "completed_records": 43895,
+    "expenditure_transactions": 34979,
+    "allocated_limit_records": 773,
+    "calamity_records": 34
+  }
+}

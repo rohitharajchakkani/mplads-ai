@@ -1,0 +1,1063 @@
+{
+  "generated_at": "2026-09-06T13:11:34.133455+00:00",
+  "manifest_version": "intake-2026-09-06",
+  "datasets": [
+    {
+      "order": 1,
+      "house": "LOK_SABHA",
+      "dataset_type": "ALLOCATED_LIMIT",
+      "source_file": "raw/lok_sabha/Allocated Limit for Honble MPs.xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "7956fd7470b27bc6aaba6dde170e9048beee9105db13522cb9c46c6fe4be0173",
+      "source_row_count_including_header": 546,
+      "data_row_count": 544,
+      "blank_post_header_row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.18
+        },
+        {
+          "name": "Hon'ble Members of Parliaments",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.18
+        },
+        {
+          "name": "Constituency",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.18
+        },
+        {
+          "name": "Allocated AMOUNT ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 1,
+          "null_percent": 0.18
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 544,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": null,
+        "parsed_work_id_count": 0,
+        "unparsed_or_missing_count": null,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 0,
+        "distinct_normalized_work_id_count": 0
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 2,
+      "house": "LOK_SABHA",
+      "dataset_type": "CALAMITY",
+      "source_file": "raw/lok_sabha/Amount consented for Calamity.xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "f049f625f95b0927f53179932320e59bf3793cbf45c7b86a010c9cf4dbb9a355",
+      "source_row_count_including_header": 15,
+      "data_row_count": 13,
+      "blank_post_header_row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Calamity Type",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 7.69
+        },
+        {
+          "name": "Calamity Name",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 7.69
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 7.69
+        },
+        {
+          "name": "Date of Consent",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 7.69
+        },
+        {
+          "name": "Consent Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 13,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": null,
+        "parsed_work_id_count": 0,
+        "unparsed_or_missing_count": null,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 0,
+        "distinct_normalized_work_id_count": 0
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 3,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_RECOMMENDED",
+      "source_file": "raw/lok_sabha/Works Recommended (2).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "a664c45068db2b2882c9e8e40969718757df01adcef442107a270aadba730f9f",
+      "source_row_count_including_header": 103426,
+      "data_row_count": 103424,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "WORK",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Constituency",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work description",
+          "inferred_type": "text",
+          "null_count": 3,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Recommended date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "RECOMMENDED AMOUNT   ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Sanction Date",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 103424,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "WORK",
+        "parsed_work_id_count": 77982,
+        "unparsed_or_missing_count": 25442,
+        "na_placeholder_count": 25441,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 77982
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 4,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_SANCTIONED",
+      "source_file": "raw/lok_sabha/Works Sanctioned.xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "522f3c10e607bd9bedfd4007ad6c2c60b0e4eb33b1f4d46b3b0d6bf274f8452e",
+      "source_row_count_including_header": 32003,
+      "data_row_count": 32001,
+      "blank_post_header_row_count": 0,
+      "column_count": 12,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Constituency",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work description",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Recommended date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Sanction Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Sanction Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work Status",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 32001,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work",
+        "parsed_work_id_count": 32000,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 32000
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 5,
+      "house": "LOK_SABHA",
+      "dataset_type": "EXPENDITURE",
+      "source_file": "raw/lok_sabha/Expenditure on Completed and On-going Works as on Date.xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "195c569f2e9e2f9980c964b150f746eb1e9531b7e380c714334acda18618b11d",
+      "source_row_count_including_header": 10003,
+      "data_row_count": 10001,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work ID",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Constituency",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Expenditure Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Vendor Name",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Payment Status",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Fund Disbursed Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 10001,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work ID",
+        "parsed_work_id_count": 10000,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 7542
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 6,
+      "house": "LOK_SABHA",
+      "dataset_type": "WORKS_COMPLETED",
+      "source_file": "raw/lok_sabha/Works Completed.xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "4545f8f74dcc87438ba1fdd57307f2eacaef048bcf40f312dad04b941f88fb0b",
+      "source_row_count_including_header": 33985,
+      "data_row_count": 33983,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work Category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work Description",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Constituency",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Image",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Completion Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Amount Disbursed ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 77,
+          "null_percent": 0.23
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 33983,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work",
+        "parsed_work_id_count": 33982,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 33982
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 7,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "ALLOCATED_LIMIT",
+      "source_file": "raw/rajya_sabha/Allocated Limit for Honble MPs (1).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "dabc86530660f949c2472cb1e014a03017953f19b36a4e1f23d3172bc7db3656",
+      "source_row_count_including_header": 234,
+      "data_row_count": 232,
+      "blank_post_header_row_count": 0,
+      "column_count": 5,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.43
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.43
+        },
+        {
+          "name": "Elected/Nominated",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.43
+        },
+        {
+          "name": "Allocated AMOUNT ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 232,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": null,
+        "parsed_work_id_count": 0,
+        "unparsed_or_missing_count": null,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 0,
+        "distinct_normalized_work_id_count": 0
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 8,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "CALAMITY",
+      "source_file": "raw/rajya_sabha/Amount consented for Calamity (1).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "55e299ee4b2fda9188ef218f850062379962c71e58a23ac4e8bb3d0a5e37e5eb",
+      "source_row_count_including_header": 23,
+      "data_row_count": 21,
+      "blank_post_header_row_count": 0,
+      "column_count": 6,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Calamity Type",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 4.76
+        },
+        {
+          "name": "Calamity Name",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 4.76
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 4.76
+        },
+        {
+          "name": "Date of Consent",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 4.76
+        },
+        {
+          "name": "Consent Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 21,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": null,
+        "parsed_work_id_count": 0,
+        "unparsed_or_missing_count": null,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 0,
+        "distinct_normalized_work_id_count": 0
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 9,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_RECOMMENDED",
+      "source_file": "raw/rajya_sabha/Works Recommended (3).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "c0bb6cb17e882dc2ee04bedd62430515bf91a59bdac4185c941235dfddd71694",
+      "source_row_count_including_header": 22003,
+      "data_row_count": 22001,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "WORK",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Elected/Nominated",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work description",
+          "inferred_type": "text",
+          "null_count": 2,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Recommended date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "RECOMMENDED AMOUNT   ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Sanction Date",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 22001,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "WORK",
+        "parsed_work_id_count": 18668,
+        "unparsed_or_missing_count": 3333,
+        "na_placeholder_count": 3332,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 18668
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 10,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_SANCTIONED",
+      "source_file": "raw/rajya_sabha/Works Sanctioned (1).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "33b1b40be162f088fa20713e92950e4bdfbb047de79ba8d35a3b9ad2322376ef",
+      "source_row_count_including_header": 19333,
+      "data_row_count": 19331,
+      "blank_post_header_row_count": 0,
+      "column_count": 12,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Elected/Nominated",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work description",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Recommended date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Sanction Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Sanction Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work Status",
+          "inferred_type": "text",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 19331,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work",
+        "parsed_work_id_count": 19330,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 19330
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 11,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "EXPENDITURE",
+      "source_file": "raw/rajya_sabha/Expenditure on Completed and On-going Works as on Date (1).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "9ca6f5d84a0171e70cd3e3634eb0c123b1a070a7cdfbc0e97d36bfff186601e0",
+      "source_row_count_including_header": 24982,
+      "data_row_count": 24980,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work ID",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Elected/Nominated",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Expenditure Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Vendor Name",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Payment Status",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Fund Disbursed Amount ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 24980,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work ID",
+        "parsed_work_id_count": 24979,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 15210
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    },
+    {
+      "order": 12,
+      "house": "RAJYA_SABHA",
+      "dataset_type": "WORKS_COMPLETED",
+      "source_file": "raw/rajya_sabha/Works Completed (1).xlsx",
+      "file_type": ".xlsx",
+      "source_sheet": "Sheet1",
+      "sha256": "33a291e23b1c0fe469757177d06265750f4759fe861d0f0b81ae289093bdadd0",
+      "source_row_count_including_header": 9916,
+      "data_row_count": 9914,
+      "blank_post_header_row_count": 0,
+      "column_count": 11,
+      "columns": [
+        {
+          "name": "Sr. No.",
+          "inferred_type": "numeric",
+          "null_count": 0,
+          "null_percent": 0.0
+        },
+        {
+          "name": "Work Category",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "State",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "IDA",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Work Description",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Hon'ble Members of Parliament",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Elected/Nominated",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Image",
+          "inferred_type": "text",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Completion Date",
+          "inferred_type": "date_text_dd_mmm_yyyy",
+          "null_count": 1,
+          "null_percent": 0.01
+        },
+        {
+          "name": "Amount Disbursed ( \u20b9 )",
+          "inferred_type": "numeric",
+          "null_count": 18,
+          "null_percent": 0.18
+        }
+      ],
+      "exact_duplicate_data_rows": 0,
+      "source_record_number": {
+        "column": "Sr. No.",
+        "populated_count": 9914,
+        "unique": true,
+        "candidate_business_key": "source sequence only"
+      },
+      "work_identity_evidence": {
+        "source_column": "Work",
+        "parsed_work_id_count": 9913,
+        "unparsed_or_missing_count": 1,
+        "na_placeholder_count": 0,
+        "missing_source_value_count": 1,
+        "distinct_normalized_work_id_count": 9913
+      },
+      "schema_status": "VERIFIED_OBSERVED",
+      "validation_status": "PASSED_SOURCE_AUDIT"
+    }
+  ],
+  "cross_house_work_id_collision_count": 0
+}

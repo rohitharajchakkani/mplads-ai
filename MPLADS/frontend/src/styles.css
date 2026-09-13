@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family:
+      Inter,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      "Nirmala UI",
+      "Noto Sans",
+      "Noto Sans Devanagari",
+      "Noto Sans Telugu",
+      "Noto Sans Tamil",
+      "Noto Sans Bengali",
+      "Noto Sans Gujarati",
+      "Noto Sans Kannada",
+      "Noto Sans Malayalam",
+      "Noto Sans Odia",
+      "Noto Sans Gurmukhi",
+      ui-sans-serif,
+      sans-serif;
+    color: #15263a;
+    background: #f4f7fa;
+  }
+  body { margin: 0; min-width: 320px; }
+  *, *::before, *::after { box-sizing: border-box; }
+  button, input, select { font: inherit; }
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; opacity: 0.5; }
+  :focus-visible { outline: 2px solid #1769aa; outline-offset: 2px; }
+  ::selection { background: #d8e9f7; color: #12355b; }
+}
+
+@layer components {
+  .page-container { @apply mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8; }
+  .app-canvas { background-color: #f4f7fa; background-image: linear-gradient(rgba(18, 53, 91, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 53, 91, 0.035) 1px, transparent 1px); background-size: 40px 40px; }
+  .nav-link { @apply relative rounded-md px-2.5 py-2 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue; }
+  .nav-link-active { @apply bg-blue-50 text-blue; }
+  .nav-link-active::after { @apply absolute bottom-0 left-2.5 right-2.5 h-0.5 rounded-full bg-[#d97706] content-['']; }
+  .button-primary { @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-navy px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0d2a4b] hover:shadow-panel focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2; }
+  .button-secondary { @apply inline-flex min-h-9 items-center justify-center gap-1.5 rounded-md border border-line bg-white px-3 py-1.5 text-sm font-medium text-ink shadow-sm transition hover:border-blue hover:bg-blue-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue; }
+  .button-quiet { @apply inline-flex min-h-8 items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium text-slate-600 transition hover:bg-blue-50 hover:text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue; }
+  .field-label { @apply grid gap-1.5 text-xs font-medium text-slate-700; }
+  .field-control { @apply min-h-10 w-full rounded-md border border-line bg-white px-3 py-2 text-sm text-ink outline-none transition placeholder:text-slate-400 focus:border-blue focus:ring-2 focus:ring-blue/20; }
+  .footer-link { @apply text-slate-600 underline-offset-4 hover:text-blue hover:underline; }
+  .skip-link { @apply sr-only fixed left-4 top-3 z-50 rounded bg-navy px-4 py-2 text-sm font-semibold text-white focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-white; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] text-blue; }
+  .eyebrow::before { @apply h-1.5 w-1.5 rounded-full bg-[#d97706] content-['']; }
+  .section-title { font-family: Georgia, Cambria, "Times New Roman", serif; @apply tracking-tight text-ink; }
+  .data-surface { @apply border border-line/90 bg-white shadow-sm; }
+  .gov-rule { background: linear-gradient(90deg, #d97706 0 33.333%, #1769aa 33.333% 66.666%, #18794e 66.666%); }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
+
+@media print {
+  body { background: #ffffff !important; color: #15263a !important; font-size: 11pt !important; }
+  header nav, footer, button, .button-primary, .button-secondary, .button-quiet, .skip-link, form { display: none !important; }
+  .page-container { max-width: 100% !important; padding: 0 !important; margin: 0 !important; }
+  .panel, article, section, tr { break-inside: avoid !important; }
+  svg { max-height: 320px !important; width: 100% !important; height: auto !important; }
+  h1, h2, h3 { break-after: avoid !important; color: #12355b !important; }
+}
